@@ -1,0 +1,1 @@
+web: npx babel-node createNFLDB.js
