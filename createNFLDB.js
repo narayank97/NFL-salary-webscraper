@@ -16,7 +16,7 @@ if(process.env.DATABASE_URL != undefined){
 }
 
 const createTable = (conn) => {
-    conn.query('CREATE TABLE IF NOT EXISTS nflsalaries(rank varchar(4),name varchar(45),pos varchar(4),team varchar(4), salary varchar(15))', (error,results) =>{
+    conn.query('CREATE TABLE IF NOT EXISTS nflsalaries(rank varchar(4),name varchar(45),pos varchar(4),team varchar(4),salary varchar(15))', (error,results) =>{
         if(error){
             console.log("There was a Error in CreateTable");
             throw error;
