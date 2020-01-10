@@ -5,12 +5,12 @@ let myPort = process.env.PORT;
 let env = process.env.NODE_ENV;
 
 
-let myPage = nfl.myhtmlPage;
-let myobj;
-myobj = myPage.then(function(result){
-    myobj = nfl.getData(result);
-    //console.log(myobj[0]);
-});
+// let myPage = nfl.myhtmlPage;
+// let myobj;
+// myobj = myPage.then(function(result){
+//     myobj = nfl.getData(result);
+//     //console.log(myobj[0]);
+// });
 
 
 if(process.env.DATABASE_URL != undefined){
