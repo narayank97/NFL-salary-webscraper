@@ -14,12 +14,12 @@ let env = process.env.NODE_ENV;
 
 
 if(process.env.DATABASE_URL != undefined){
-    connectionString = {
+    let myconnectionString = {
         connectionString: process.env.DATABASE_URL,
         ssl: true
     };
     console.log("Checking db");
-    pool = new Pool(connectionString);
+    let pool = new Pool(myconnectionString);
     console.log("After db we out here");
 }
 
