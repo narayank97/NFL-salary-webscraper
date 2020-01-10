@@ -1,17 +1,17 @@
-const request = require('request');
-const cheerio = require('cheerio');
-const axios = require('axios');
+export const request = require('request');
+export const cheerio = require('cheerio');
+export const axios = require('axios');
 
-const util = require('util');
+export const util = require('util');
 
 // this line just raises the max number of lines that can be displayed on terminal
 util.inspect.defaultOptions.maxArrayLength = null; 
 
 // const url = 'https://www.spotrac.com/nfl/rankings/2019/cap-hit/';
-const url = 'https://www.pro-football-reference.com/players/salary.htm';
+export const url = 'https://www.pro-football-reference.com/players/salary.htm';
 
 // this code gets html page from the url
-let getPageData = (url) =>{
+export let getPageData = (url) =>{
     return axios.get(url)
     .then(response => {
         //console.log(response.data);
@@ -23,8 +23,8 @@ let getPageData = (url) =>{
 }
 
 // this function parses the html code and scrapes data from table
-let getData = html => {
-    info = [];
+export let getData = html => {
+    let info = [];
     const $ = cheerio.load(html);
     // based on the table on the site the 2nd child(td tag) of the row shows the player name
     $('tbody tr :nth-child(2)').each((i,elem) => {
@@ -32,6 +32,8 @@ let getData = html => {
         info.push({
             rank: "",
             playerName : $(elem).find('a').text().trim(),
+            position: "",
+            team:"",
             playerSalary: ""
         });
     });
@@ -49,20 +51,32 @@ let getData = html => {
         } 
     });
 
+    //records position of player
+    $('tbody tr :nth-child(3)').each((i,elem) => {
+        info[i].position = $(elem).text().trim();
+    });
+
+     //records team of player
+     $('tbody tr :nth-child(4)').each((i,elem) => {
+         let team = $(elem).find('a').text().trim();
+         info[i].team = team;
+    });
+
     // go through a second time to get the actual salary
     // 3rd td tag shows the salary
     $('tbody tr :nth-child(5)').each((i,elem) => {
         info[i].playerSalary = $(elem).text().trim();
     });
 
-    console.log(info);
+    return info;
 };
 
 //called the functions
 
-let myhtmlPage = getPageData(url);
+export let myhtmlPage = getPageData(url);
 
 //allows the page to load and use it as argument for my function
-myhtmlPage.then(function(result){
+export let finalProduct = myhtmlPage.then(function(result){
     getData(result);
 });
+
