@@ -27,6 +27,18 @@ const createTable = (conn) => {
     });
 }
 
+const dropTable = (conn) => {
+    conn.query('DROP TABLE IF EXISTS nflsalaries CASCADE;', (error,results) =>{
+        if(error){
+            console.log("There was a Error in CreateTable");
+            throw error;
+        }
+        console.log("Dropped the table");
+        console.log(results);
+        //response.status(200);
+    });
+}
+
 const insertRecord = (myConnection,obj) => {
     myConnection.query("INSERT INTO nflsalaries(rank,name,pos,team,salary)values('"+obj.rank+"','"+obj.playerName+"','"+obj.position+"','"+obj.team+"','"+obj.playerSalary+"')", (error,results) =>{
     if(error){
@@ -49,6 +61,8 @@ console.log("HI");
 //         insertRecord(pool,myobj[i]);
 //     }
 // });
+dropTable(pool);
+createTable(pool);
 let finalProduct = nfl.myhtmlPage;
 finalProduct.then(function(result){
     let myObj = nfl.getData(result);
