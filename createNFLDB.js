@@ -46,23 +46,30 @@ const insertRecord = (myConnection,obj) => {
         //response.status(200).json(results.rows);
     });
 }
+function printHello(){
+    console.log('hello world');
+}
+
 //createTable(pool);
 
 
 console.log("HI");
 
 dropTable(pool);
-// createTable(pool);
-// let finalProduct = nfl.myhtmlPage;
-// finalProduct.then(function(result){
-//     let myObj = nfl.getData(result);
-//     Promise.all(myObj).then(function(values){
-//         console.log("my object length is ---------------->>>>>> "+myObj.length);
-//         for(let i = 0; i < myObj.length;i++){
-//             console.log(i + "    !!!!!!!!!!!!!!!");
-//             insertRecord(pool,myObj[i]);
-//         }
-//         console.log("WE MADE IT OUT HERE OF THE FOR LOOP!!!!");
-//     });
+createTable(pool);
+let finalProduct = nfl.myhtmlPage;
+finalProduct.then(function(result){
+    let myObj = nfl.getData(result);
+    Promise.all(myObj).then(function(values){
+        console.log("my object length is ---------------->>>>>> "+myObj.length);
+        for(let i = 0; i < myObj.length;i++){
+            console.log(i + "    !!!!!!!!!!!!!!!");
+            insertRecord(pool,myObj[i]);
+        }
+        console.log("WE MADE IT OUT HERE OF THE FOR LOOP!!!!");
+    });
     
-// });
+});
+console.log("YAKIMAAA!!!!");
+
+setInterval(printHello, 5000);
