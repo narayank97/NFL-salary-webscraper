@@ -43,6 +43,7 @@ const insertRecord = (myConnection,obj) => {
         console.log("There was a Error when inserting boss");
         throw error;
     }
+    pool.end();
         //response.status(200).json(results.rows);
     });
 }

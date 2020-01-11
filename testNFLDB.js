@@ -78,6 +78,7 @@ util.inspect.defaultOptions.maxArrayLength = null;
 //allows the page to load and use it as argument for my function
  let finalProduct = myhtmlPage.then(function(result){
     let myObj = getData(result);
+    console.log(myObj);
     Promise.all(myObj).then(function(values){
         for(let i = 0; i < myObj.length;i++){
             console.log(i + "    !!!!!!!!!!!!!!!");
