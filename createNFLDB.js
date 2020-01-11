@@ -71,6 +71,7 @@ finalProduct.then(function(result){
             console.log(i + "    !!!!!!!!!!!!!!!");
             insertRecord(pool,myObj[i]);
         }
+        console.log("WE MADE IT OUT HERE OF THE FOR LOOP!!!!");
     });
     
 });
