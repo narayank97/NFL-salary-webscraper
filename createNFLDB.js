@@ -61,7 +61,6 @@ console.log("HI");
 //         insertRecord(pool,myobj[i]);
 //     }
 // });
-dropTable(pool);
 createTable(pool);
 let finalProduct = nfl.myhtmlPage;
 finalProduct.then(function(result){
