@@ -66,6 +66,7 @@ let finalProduct = nfl.myhtmlPage;
 finalProduct.then(function(result){
     let myObj = nfl.getData(result);
     Promise.all(myObj).then(function(values){
+        console.log("my object length is ---------------->>>>>> "+myObj.length);
         for(let i = 0; i < myObj.length;i++){
             console.log(i + "    !!!!!!!!!!!!!!!");
             insertRecord(pool,myObj[i]);
