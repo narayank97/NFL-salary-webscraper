@@ -73,4 +73,4 @@ finalProduct.then(function(result){
 });
 console.log("YAKIMAAA!!!!");
 
-setInterval(printHello, 5000);
+setInterval(printHello, 30000);
