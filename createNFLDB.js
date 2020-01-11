@@ -41,6 +41,7 @@ const insertRecord = (myConnection,obj) => {
     myConnection.query("INSERT INTO nflsalaries(rank,name,pos,team,salary)values('"+obj.rank+"','"+obj.playerName+"','"+obj.position+"','"+obj.team+"','"+obj.playerSalary+"')", (error,results) =>{
     if(error){
         console.log("There was a Error when inserting boss");
+        console.log(error);
         throw error;
     }
         //response.status(200).json(results.rows);
