@@ -64,6 +64,7 @@ finalProduct.then(function(result){
         console.log("my object length is ---------------->>>>>> "+myObj.length);
         for(let i = 0; i < myObj.length;i++){
             console.log(i + "    !!!!!!!!!!!!!!!");
+            console.log(myObj[i]);
             insertRecord(pool,myObj[i]);
         }
         console.log("WE MADE IT OUT HERE OF THE FOR LOOP!!!!");
