@@ -22,7 +22,6 @@ const createTable = (conn) => {
             throw error;
         }
         console.log("WE HERE in create Table!!!!!!!!!");
-        console.log(results);
         //response.status(200);
     });
 }
@@ -34,7 +33,6 @@ const dropTable = (conn) => {
             throw error;
         }
         console.log("Dropped the table");
-        console.log(results);
         //response.status(200);
     });
 }
@@ -45,7 +43,6 @@ const insertRecord = (myConnection,obj) => {
         console.log("There was a Error when inserting boss");
         throw error;
     }
-    console.log(results.rows);
         //response.status(200).json(results.rows);
     });
 }
@@ -53,25 +50,19 @@ const insertRecord = (myConnection,obj) => {
 
 
 console.log("HI");
-// let myPage = nfl.myhtmlPage;
-// myPage.then(function(result){
-//     let myobj = nfl.getData(result);
-//     for(let i = 0; i < myobj.length; i++){
-//         console.log(i);
-//         insertRecord(pool,myobj[i]);
-//     }
-// });
-createTable(pool);
-let finalProduct = nfl.myhtmlPage;
-finalProduct.then(function(result){
-    let myObj = nfl.getData(result);
-    Promise.all(myObj).then(function(values){
-        console.log("my object length is ---------------->>>>>> "+myObj.length);
-        for(let i = 0; i < myObj.length;i++){
-            console.log(i + "    !!!!!!!!!!!!!!!");
-            insertRecord(pool,myObj[i]);
-        }
-        console.log("WE MADE IT OUT HERE OF THE FOR LOOP!!!!");
-    });
+
+dropTable(pool);
+// createTable(pool);
+// let finalProduct = nfl.myhtmlPage;
+// finalProduct.then(function(result){
+//     let myObj = nfl.getData(result);
+//     Promise.all(myObj).then(function(values){
+//         console.log("my object length is ---------------->>>>>> "+myObj.length);
+//         for(let i = 0; i < myObj.length;i++){
+//             console.log(i + "    !!!!!!!!!!!!!!!");
+//             insertRecord(pool,myObj[i]);
+//         }
+//         console.log("WE MADE IT OUT HERE OF THE FOR LOOP!!!!");
+//     });
     
-});
+// });
