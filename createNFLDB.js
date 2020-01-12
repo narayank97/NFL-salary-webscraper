@@ -66,7 +66,7 @@ finalProduct.then(function(result){
         for(let i = 0; i < myObj.length;i++){
             console.log(i + "    !!!!!!!!!!!!!!!");
             console.log(myObj[i]);
-            Promise(insertRecord(pool,myObj[i])).then(function(values){
+            Promise.all(insertRecord(pool,myObj[i])).then(function(values){
                 console.log("inserted");
             });//insertRecord(pool,myObj[i]);
         }
