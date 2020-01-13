@@ -12,15 +12,15 @@ console.log("Checking db");
 let pool = new Pool(myconnectionString);
 console.log("After db we out here");
 
-// if(process.env.DATABASE_URL != undefined){
-//     let myconnectionString = {
-//         connectionString: process.env.DATABASE_URL,
-//         ssl: true
-//     };
-//     console.log("Checking db");
-//     pool = new Pool(myconnectionString);
-//     console.log("After db we out here");
-// }
+if(process.env.DATABASE_URL != undefined){
+    let myconnectionString = {
+        connectionString: process.env.DATABASE_URL,
+        ssl: true
+    };
+    console.log("Checking db");
+    pool = new Pool(myconnectionString);
+    console.log("After db we out here");
+}
 
 console.log(pool);
 
