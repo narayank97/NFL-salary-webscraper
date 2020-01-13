@@ -25,7 +25,7 @@ if(process.env.DATABASE_URL != undefined){
 console.log(pool);
 
 const createTable = (conn) => {
-    conn.query('CREATE TABLE IF NOT EXISTS nflsalaries(rank varchar(4),name varchar(45),pos varchar(6),team varchar(4),salary varchar(15));', (error,results) =>{
+    conn.query('CREATE TABLE IF NOT EXISTS nflsalaries(rank integer,name varchar(45),pos varchar(6),team varchar(4),salary varchar(15));', (error,results) =>{
         if(error){
             console.log("There was a Error in CreateTable");
             throw error;
@@ -47,7 +47,7 @@ const dropTable = (conn) => {
 }
 
 const insertRecord = (myConnection,obj) => {
-    let query = myConnection.query("INSERT INTO nflsalaries(rank,name,pos,team,salary)values('"+obj.rank+"','"+obj.playerName+"','"+obj.position+"','"+obj.team+"','"+obj.playerSalary+"');", (error,results) =>{
+    let query = myConnection.query("INSERT INTO nflsalaries(rank,name,pos,team,salary)values('"+parseInt(obj.rank,10)+"','"+obj.playerName+"','"+obj.position+"','"+obj.team+"','"+obj.playerSalary+"');", (error,results) =>{
     console.log(obj.rank);
     console.log(obj.playerName);
     console.log(obj.position);
@@ -71,25 +71,25 @@ function printHello(){
 
 console.log("HI");
 
- //dropTable(pool);
-createTable(pool);
-let finalProduct = nfl.myhtmlPage;
-finalProduct.then(function(result){
-    let myObj = nfl.getData(result);
-    Promise.all(myObj).then(function(values){
+ dropTable(pool);
+// createTable(pool);
+// let finalProduct = nfl.myhtmlPage;
+// finalProduct.then(function(result){
+//     let myObj = nfl.getData(result);
+//     Promise.all(myObj).then(function(values){
         
-        for(var i = 0; i < myObj.length;i++){
-            (function(i)
-            {
-                console.log(i + "    !!!!!!!!!!!!!!!");
-                console.log(myObj[i]);
-                insertRecord(pool,values[i]);
-            })(i);
+//         for(var i = 0; i < myObj.length;i++){
+//             (function(i)
+//             {
+//                 console.log(i + "    !!!!!!!!!!!!!!!");
+//                 console.log(myObj[i]);
+//                 insertRecord(pool,values[i]);
+//             })(i);
 
-        }
+//         }
             
-    });
-    console.log("WE MADE IT OUT HERE OF THE FOR LOOP!!!!");
+//     });
+//     console.log("WE MADE IT OUT HERE OF THE FOR LOOP!!!!");
     
-});
-console.log("YAKIMAAA!!!!");
+// });
+// console.log("YAKIMAAA!!!!");
