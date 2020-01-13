@@ -31,7 +31,7 @@ export let getData = html => {
         // create an object, and place name in specific var
         info.push({
             rank: "",
-            playerName : $(elem).find('a').text().trim(),
+            playerName : $(elem).find('a').text().trim().replace("'",""),
             position: "",
             team:"",
             playerSalary: ""

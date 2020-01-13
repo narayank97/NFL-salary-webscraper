@@ -1,22 +1,31 @@
 import * as nfl from './nflSalaryScraper.js';
 const Pool = require('pg').Pool;
 
-let myPort = process.env.PORT;
+let myPort = process.env.PORT||5432;
 let env = process.env.NODE_ENV;
 
-let pool;
-if(process.env.DATABASE_URL != undefined){
-    let myconnectionString = {
-        connectionString: process.env.DATABASE_URL,
-        ssl: true
-    };
-    console.log("Checking db");
-    pool = new Pool(myconnectionString);
-    console.log("After db we out here");
-}
+let myconnectionString = {
+    connectionString: "postgres://karunnarayan@localhost/mynfllocaldb",
+    ssl: false
+};
+console.log("Checking db");
+let pool = new Pool(myconnectionString);
+console.log("After db we out here");
+
+// if(process.env.DATABASE_URL != undefined){
+//     let myconnectionString = {
+//         connectionString: process.env.DATABASE_URL,
+//         ssl: true
+//     };
+//     console.log("Checking db");
+//     pool = new Pool(myconnectionString);
+//     console.log("After db we out here");
+// }
+
+console.log(pool);
 
 const createTable = (conn) => {
-    conn.query('CREATE TABLE IF NOT EXISTS nflsalaries(rank varchar(4),name varchar(45),pos varchar(4),team varchar(4),salary varchar(15))', (error,results) =>{
+    conn.query('CREATE TABLE IF NOT EXISTS nflsalaries(rank varchar(4),name varchar(45),pos varchar(6),team varchar(4),salary varchar(15));', (error,results) =>{
         if(error){
             console.log("There was a Error in CreateTable");
             throw error;
@@ -38,12 +47,18 @@ const dropTable = (conn) => {
 }
 
 const insertRecord = (myConnection,obj) => {
-    myConnection.query("INSERT INTO nflsalaries(rank,name,pos,team,salary)values('"+obj.rank+"','"+obj.playerName+"','"+obj.position+"','"+obj.team+"','"+obj.playerSalary+"')", (error,results) =>{
-    if(error){
-        console.log("There was a Error when inserting boss");
-        console.log(error);
-        throw error;
-    }
+    let query = myConnection.query("INSERT INTO nflsalaries(rank,name,pos,team,salary)values('"+obj.rank+"','"+obj.playerName+"','"+obj.position+"','"+obj.team+"','"+obj.playerSalary+"');", (error,results) =>{
+    console.log(obj.rank);
+    console.log(obj.playerName);
+    console.log(obj.position);
+    console.log(obj.team);
+    console.log(obj.playerSalary);
+        //'"+obj.rank+"','"+obj.playerName+"','"+obj.position+"','"+obj.team+"','"+obj.playerSalary+"'
+        if(error){
+            console.log("There was a Error when inserting boss");
+            console.log(error);
+            throw error;
+        }
         //response.status(200).json(results.rows);
     });
 }
@@ -56,24 +71,25 @@ function printHello(){
 
 console.log("HI");
 
-dropTable(pool);
-createTable(pool);
-let finalProduct = nfl.myhtmlPage;
-finalProduct.then(function(result){
-    let myObj = nfl.getData(result);
-    Promise.all(myObj).then(function(values){
-        console.log("my object length is ---------------->>>>>> "+myObj.length);
-        for(let i = 0; i < myObj.length;i++){
-            console.log(i + "    !!!!!!!!!!!!!!!");
-            console.log(myObj[i]);
-            Promise.all(insertRecord(pool,myObj[i])).then(function(values){
-                console.log("inserted");
-            });//insertRecord(pool,myObj[i]);
-        }
-        console.log("WE MADE IT OUT HERE OF THE FOR LOOP!!!!");
-    });
-    
-});
-console.log("YAKIMAAA!!!!");
+ dropTable(pool);
+// createTable(pool);
+// let finalProduct = nfl.myhtmlPage;
+// finalProduct.then(function(result){
+//     let myObj = nfl.getData(result);
+//     Promise.all(myObj).then(function(values){
+        
+//         for(var i = 0; i < myObj.length;i++){
+//             (function(i)
+//             {
+//                 console.log(i + "    !!!!!!!!!!!!!!!");
+//                 console.log(myObj[i]);
+//                 insertRecord(pool,values[i]);
+//             })(i);
 
-setInterval(printHello, 30000);
+//         }
+            
+//     });
+//     console.log("WE MADE IT OUT HERE OF THE FOR LOOP!!!!");
+    
+// });
+// console.log("YAKIMAAA!!!!");

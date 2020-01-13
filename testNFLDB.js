@@ -31,7 +31,7 @@ util.inspect.defaultOptions.maxArrayLength = null;
         // create an object, and place name in specific var
         info.push({
             rank: "",
-            playerName : $(elem).find('a').text().trim(),
+            playerName : $(elem).find('a').text().trim().replace("'",""),
             position: "",
             team:"",
             playerSalary: ""
@@ -81,8 +81,10 @@ util.inspect.defaultOptions.maxArrayLength = null;
     console.log(myObj);
     Promise.all(myObj).then(function(values){
         for(let i = 0; i < myObj.length;i++){
-            console.log(i + "    !!!!!!!!!!!!!!!");
-            console.log(values[i].playerName);
+            //console.log(i + "    !!!!!!!!!!!!!!!");
+            if(myObj[i].rank == 124){
+                console.log(values[i].playerName);
+            }
         }
     });
     
