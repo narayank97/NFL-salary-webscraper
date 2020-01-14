@@ -71,26 +71,25 @@ function printHello(){
 
 console.log("HI");
 
-//  dropTable(pool);
-createTable(pool);
-let finalProduct = nfl.myhtmlPage;
-finalProduct.then(function(result){
-    let myObj = nfl.getData(result);
-    Promise.all(myObj).then(function(values){
+dropTable(pool);
+// createTable(pool);
+// let finalProduct = nfl.myhtmlPage;
+// finalProduct.then(function(result){
+//     let myObj = nfl.getData(result);
+//     Promise.all(myObj).then(function(values){
         
-        for(var i = 0; i < myObj.length;i++){
-            (function(i)
-            {
-                console.log(i + "    !!!!!!!!!!!!!!!");
-                console.log(myObj[i]);
-                insertRecord(pool,values[i]);
-            })(i);
+//         for(var i = 0; i < myObj.length;i++){
+//             (function(i)
+//             {
+//                 console.log(i + "    !!!!!!!!!!!!!!!");
+//                 console.log(myObj[i]);
+//                 insertRecord(pool,values[i]);
+//             })(i);
 
-        }
+//         }
             
-    });
-    console.log("WE MADE IT OUT HERE OF THE FOR LOOP!!!!");
+//     });
+//     console.log("WE MADE IT OUT HERE OF THE FOR LOOP!!!!");
     
-});
-setInterval(printHello, 400000);
+// });
 // console.log("YAKIMAAA!!!!");
