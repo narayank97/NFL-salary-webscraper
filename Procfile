@@ -1,1 +1,1 @@
-web: node startServer.js
+web:npx babel-node startServer.js  
