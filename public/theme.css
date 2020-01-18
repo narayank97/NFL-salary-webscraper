@@ -1,0 +1,39 @@
+html {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.recordLegend{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-right:10%;
+    margin-left: 10%;
+    background-color: aqua;
+    position: relative;
+    
+}
+.dbCol{
+    padding-left: 10%;
+    padding-right: 10%;
+    text-align: center;
+    /* padding-left: 2%; */
+}
+
+.newRecord{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-right:7%;
+    margin-left: 7%;
+    background-color: aqua;
+    position: relative;
+
+}
