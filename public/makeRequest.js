@@ -23,36 +23,36 @@ function getAllSalaries(){
             newDiv.className= "newRecord";
 
             let newDivRank = document.createElement("div");
-            newDivRank.id = "rank";
-            newDivRank.className = "dbCol";
+            newDivRank.id = "dbCol";
+            newDivRank.className = "rank";
             let newDivRankContent = document.createTextNode(object[i].rank);
             newDivRank.appendChild(newDivRankContent);
             newDiv.appendChild(newDivRank);
 
             let newDivName = document.createElement("div");
-            newDivName.id = "name";
-            newDivName.className="dbCol";
+            newDivName.id = "dbCol";
+            newDivName.className="name";
             let newDivNameContent = document.createTextNode(object[i].name);
             newDivName.appendChild(newDivNameContent);
             newDiv.appendChild(newDivName);
 
             let newDivPos = document.createElement("div");
-            newDivPos.id = "pos";
-            newDivPos.className ="dbCol";
+            newDivPos.id = "dbCol";
+            newDivPos.className ="pos";
             let newDivPosContent = document.createTextNode(object[i].pos);
             newDivPos.appendChild(newDivPosContent);
             newDiv.appendChild(newDivPos);
 
             let newDivTeam = document.createElement("div");
-            newDivTeam.id = "team";
-            newDivTeam.className="dbCol";
+            newDivTeam.id = "dbCol";
+            newDivTeam.className="team";
             let newDivTeamContent = document.createTextNode(object[i].team);
             newDivTeam.appendChild(newDivTeamContent);
             newDiv.appendChild(newDivTeam);
 
             let newDivSalary = document.createElement("div");
-            newDivSalary.id = "salary";
-            newDivSalary.className="dbCol";
+            newDivSalary.id = "dbCol";
+            newDivSalary.className="salary";
             let newDivSalaryContent = document.createTextNode(object[i].salary);
             newDivSalary.appendChild(newDivSalaryContent);
             newDiv.appendChild(newDivSalary);
@@ -72,4 +72,23 @@ function getAllSalaries(){
 
     xhr.send();
 
+}
+
+function search(){
+    let input,filter,outterDiv,playersFound,i,currPlayerName,txtValue;
+    input = document.getElementById("playerName");
+    filter = input.value.toUpperCase();
+    outterDiv = document.getElementById("records");
+    playersFound = outterDiv.getElementsByClassName("newRecord");
+    for(i = 0; i < playersFound.length;i++){
+        playerDiv = playersFound[i];
+        currPlayerName = playerDiv.getElementsByClassName("name")[0];
+        txtValue = currPlayerName.innerText;
+        if(txtValue.toUpperCase().indexOf(filter) > -1){
+            playersFound[i].style.display = "";
+        }
+        else{
+            playersFound[i].style.display = "none";
+        } 
+    }
 }
