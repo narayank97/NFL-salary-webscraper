@@ -113,3 +113,18 @@ function reAppear(){
         }
     }
 }
+
+function hitEnter(){
+    let input = document.getElementById("playerName");
+    input.addEventListener("keyup",function(event){
+        if(event.keyCode === 13){
+            event.preventDefault();
+            document.getElementById("btn").click();
+        }
+    });
+}
+
+function run2Funcs(){
+    hitEnter();
+    reAppear();
+}
