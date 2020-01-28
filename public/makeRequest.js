@@ -1,3 +1,5 @@
+let originalDiv;
+
 function createCORSRequest(method,url){
     let xhr = new XMLHttpRequest();
     xhr.open(method,url,true);
@@ -76,10 +78,17 @@ function getAllSalaries(){
 
 function search(){
     let input,filter,outterDiv,playersFound,i,currPlayerName,txtValue;
+    
     input = document.getElementById("playerName");
     filter = input.value.toUpperCase();
     outterDiv = document.getElementById("records");
     playersFound = outterDiv.getElementsByClassName("newRecord");
+    if(originalDiv == null){
+        originalDiv = playersFound;
+        console.log(originalDiv);
+        console.log(originalDiv.length);
+        
+    }
     for(i = 0; i < playersFound.length;i++){
         playerDiv = playersFound[i];
         currPlayerName = playerDiv.getElementsByClassName("name")[0];
@@ -90,5 +99,17 @@ function search(){
         else{
             playersFound[i].style.display = "none";
         } 
+    }
+}
+
+function reAppear(){
+    //console.log("REAPPEARING");
+    let input,i;
+    input = document.getElementById("playerName").value;
+    console.log(input);
+    if(input == ""){;
+        for(i = 0; i < 1914;i++){
+            originalDiv[i].style.display = "";
+        }
     }
 }
