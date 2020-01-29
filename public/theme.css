@@ -3,6 +3,23 @@ html {
     height: 100%;
     width: 100%;
 }
+.title{
+    text-align: center;
+    font-size: 5em;
+    font-weight: 600;
+}
+.search{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+#playerName{
+    width: 40%;
+}
+#btn{
+    width: 15%;
+}
 
 .recordLegend{
     display: flex;
@@ -15,6 +32,8 @@ html {
     margin-left: 10%;
     /* background-color: aqua; */
     position: relative;
+    font-weight: 600;
+    font-size: 1em;
     
 }
 #dbCol{
