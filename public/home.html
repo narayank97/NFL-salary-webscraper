@@ -12,12 +12,48 @@
                 <input type="text" id="playerName" onkeyup="run2Funcs()" placeholder="Enter player's name ...">
                 <button id = "btn" onclick = "search()">Submit</button>
             </div>
+
+            <div class = "teams">
+                <div><input id = "ARI" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/arizonaCardinals.png"></div>
+                <div><input id = "ATL" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/atlantaFalcons.png"></div>
+                <div><input id = "BAL" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/baltimoreRavens.png"></div>
+                <div><input id = "BUF" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/buffaloBills.png"></div>
+                <div><input id = "CAR" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/carolinaPanthers.png"></div>
+                <div><input id = "CHI" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/chicagoBears.png"></div>
+                <div><input id = "CIN" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/cinncyBengals.png"></div>
+                <div><input id = "CLE" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/clevlandBrowns.png"></div>
+                <div><input id = "DAL" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/dallasCowboys.png"></div>
+                <div><input id = "DEN" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/denverBroncos.png"></div>
+                <div><input id = "DET" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/detroitLions.png"></div>
+                <div><input id = "GNB" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/gbPackers.png"></div>
+                <div><input id = "HOU" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/houstonTexas.png"></div>
+                <div><input id = "IND" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/indyColts.png"></div>
+                <div><input id = "JAX" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/jackJags.png"></div>
+                <div><input id = "KAN" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/kcChiefs.png"></div>
+                <div><input id = "LAC" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/laChargers.png"></div>
+                <div><input id = "LAR" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/laRams.png"></div>
+                <div><input id = "MIA" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/miamiDolphins.png"></div>
+                <div><input id = "MIN" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/minnVikings.png"></div>
+                <div><input id = "NWE" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/nePatriots.png"></div>
+                <div><input id = "NOR" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/noSaints.png"></div>
+                <div><input id = "NYG" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/nyGiants.png"></div>
+                <div><input id = "NYJ" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/nyJets.png"></div>
+                <div><input id = "OAK" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/oaklandRaiders.png"></div>
+                <div><input id = "PHI" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/phillyEagles.png"></div>
+                <div><input id = "PIT" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/pittSteelers.png"></div>
+                <div><input id = "SFO" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/sf49ers.png"></div>
+                <div><input id = "SEA" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/seattleSeahawks.png"></div>
+                <div><input id = "TAM" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/tbBucs.png"></div>
+                <div><input id = "TEN" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/tenTitans.png"></div>
+                <div><input id = "WAS" class = "ateam" onclick="teamSelected(this.id)" type = "image" src="teams/washRedskins.png"></div>
+            </div>
+
             <div class = "recordLegend">
-                <div class = "dbCol" id = "rank">RANK</div>
-                <div class = "dbCol" id = "name" >PLAYER NAME</div>
-                <div class = "dbCol" id = "pos" >POSITION</div>
-                <div class = "dbCol" id = "team">TEAM</div>
-                <div class = "dbCol" id = "salary">SALARY</div>
+                <div id = "dbCol" >RANK</div>
+                <div id = "dbCol">PLAYER NAME</div>
+                <div id = "dbCol" >POSITION</div>
+                <div id = "dbCol">TEAM</div>
+                <div id = "dbCol">SALARY</div>
             </div>
             <div id="records">
                 <div class ="aRecord"></div>

@@ -128,3 +128,30 @@ function run2Funcs(){
     hitEnter();
     reAppear();
 }
+
+function teamSelected(clicked){
+    let filter,outterDiv,playersFound,i,currTeamName,txtValue;
+    console.log(typeof(clicked));
+    filter = clicked.toUpperCase();
+    console.log("This is a filter"+filter);
+    outterDiv = document.getElementById("records");
+    playersFound = outterDiv.getElementsByClassName("newRecord");
+    if(originalDiv == null){
+        originalDiv = playersFound;
+        
+    }
+    //console.log(playersFound[i]);
+    for(i = 0; i < playersFound.length;i++){
+        playerDiv = playersFound[i];
+        currTeamName = playerDiv.getElementsByClassName("team")[0];
+        txtValue = currTeamName.innerText;
+        // console.log(txtValue);
+        if(txtValue.toUpperCase().indexOf(filter) > -1){
+            playersFound[i].style.display = "";
+        }
+        else{
+            playersFound[i].style.display = "none";
+        } 
+    }
+    console.log(clicked);
+}
