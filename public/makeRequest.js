@@ -27,35 +27,35 @@ function getAllSalaries(){
             let newDivRank = document.createElement("div");
             newDivRank.id = "dbCol";
             newDivRank.className = "rank";
-            let newDivRankContent = document.createTextNode(object[i].rank);
+            let newDivRankContent = document.createTextNode(object[i].rank.trim());
             newDivRank.appendChild(newDivRankContent);
             newDiv.appendChild(newDivRank);
 
             let newDivName = document.createElement("div");
             newDivName.id = "dbCol";
             newDivName.className="name";
-            let newDivNameContent = document.createTextNode(object[i].name);
+            let newDivNameContent = document.createTextNode(object[i].name.trim());
             newDivName.appendChild(newDivNameContent);
             newDiv.appendChild(newDivName);
 
             let newDivPos = document.createElement("div");
             newDivPos.id = "dbCol";
             newDivPos.className ="pos";
-            let newDivPosContent = document.createTextNode(object[i].pos);
+            let newDivPosContent = document.createTextNode(object[i].pos.trim());
             newDivPos.appendChild(newDivPosContent);
             newDiv.appendChild(newDivPos);
 
             let newDivTeam = document.createElement("div");
             newDivTeam.id = "dbCol";
             newDivTeam.className="team";
-            let newDivTeamContent = document.createTextNode(object[i].team);
+            let newDivTeamContent = document.createTextNode(object[i].team.trim());
             newDivTeam.appendChild(newDivTeamContent);
             newDiv.appendChild(newDivTeam);
 
             let newDivSalary = document.createElement("div");
             newDivSalary.id = "dbCol";
             newDivSalary.className="salary";
-            let newDivSalaryContent = document.createTextNode(object[i].salary);
+            let newDivSalaryContent = document.createTextNode(object[i].salary.trim());
             newDivSalary.appendChild(newDivSalaryContent);
             newDiv.appendChild(newDivSalary);
 
