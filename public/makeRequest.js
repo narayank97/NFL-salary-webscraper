@@ -27,7 +27,7 @@ function getAllSalaries(){
             let newDivRank = document.createElement("div");
             newDivRank.id = "dbCol";
             newDivRank.className = "rank";
-            let newDivRankContent = document.createTextNode(object[i].rank.trim());
+            let newDivRankContent = document.createTextNode(object[i].rank);
             newDivRank.appendChild(newDivRankContent);
             newDiv.appendChild(newDivRank);
 
